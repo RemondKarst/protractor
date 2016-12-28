@@ -49,19 +49,27 @@ describe('Testing the Student portion of the webpage', function () {
     });
 
     it('should be able to remove the last entry from the database', function () {
-
-        // expect(child.getText()).toContain('JAVA');
-        var titleIsNotFoo;
-        var list = element.all(by.css('.ext2 label'));
-        // expect(list.count()).toBe(5);
-        // child.hasOwnProperty(list.count()).deleteButton.click();
-        // child[5].deleteButton.click();
+        //
+        // var list = element.all(by.css('.ext2 label'));
         var last = element.all(by.css('.ext2 label')).last();
-       // expect(last.getText()).toBe('Third');
         last.click();
-        var child = element.all(by.id('listofstudents'));
-        var EC = protractor.ExpectedConditions;
-        titleIsNotFoo = EC.not(EC.child.getText()).toContain('JAVA');
+        //
+        // var child = element(by.id('listofstudents'));
+        // var EC = protractor.ExpectedConditions;
+        // var tekst = child.getText();
+        // var ikke = tekst.getItem("JAVA");
+        // expect (ikke).toBe("f");
+        // expect(tekst).toBe("blabnla");
+        // var titleIsNotFoo = EC.not((child.getText()).innerHTML);
+        // expect(EC.not((child.getText()).innerHTML)).toBe(false);
+        // expect((child.getText()).toContain('JAVA'));
+        // expect(titleIsNotFoo)
+
+
+
+        // var child = element.all(by.id('listofstudents'));
+        // var EC = protractor.ExpectedConditions;
+        // titleIsNotFoo = EC.not(EC.child.getText()).toContain('JAVA');
         // expect(EC.not(child.getText()).toContain('JAVA'));
         // expect(element.all(by.id('listofstudents')).contains('JAVA')).to.become(false).and.notify(next);
 
