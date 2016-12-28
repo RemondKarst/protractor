@@ -6,10 +6,9 @@ describe('Testing the Student portion of the webpage', function () {
     var lastName = element(by.id('studentlastname'))
     var email = element(by.id('studentemail'))
     var saveButton = element(by.id('saveStudent'))
+    var deleteButton = element(by.id('removeStudent'))
     var studentName = element(by.id('studentname'))
     // var latestResult = element(by.id('stud.firstName'));
-
-
 
 
     beforeEach(function () {
@@ -30,25 +29,44 @@ describe('Testing the Student portion of the webpage', function () {
         // expect(latestResult.getText()).toEqual('JAVA');
 
 
-
-
     });
     it('should now contain JAVA', function () {
-//         var elm = element.all(by.css('studentname')).last();
-// elm.click();
-//         expect(elm.getText()).toContain('JAVA');
+        var child = element(by.id('listofstudents'));
+        expect(child.getText()).toContain('JAVA');
+        //deleteButton.click()
 
-// let child = element(by.css('.div-input-text')).element(by.binding('stud.firstName'));
-// expect(child.getText()).toBe('JAVA');
+    });
+    it('should have 5 classes for the selection', function () {
 
-var elm = element.all(by.repeater('studentname')).get(1);
-expect(elm.getText()).toEqual('bar');
+        var list = element.all(by.css('.ext1 option'));
+        expect(list.count()).toBe(5);
+
+// Or using the shortcut $$() notation instead of element.all(by.css()):
+
+        var list2 = $$('.ext1 option');
+        expect(list2.count()).toBe(5);
 
     });
 
+    it('should be able to remove the last entry from the database', function () {
+
+        // expect(child.getText()).toContain('JAVA');
+        var titleIsNotFoo;
+        var list = element.all(by.css('.ext2 label'));
+        // expect(list.count()).toBe(5);
+        // child.hasOwnProperty(list.count()).deleteButton.click();
+        // child[5].deleteButton.click();
+        var last = element.all(by.css('.ext2 label')).last();
+       // expect(last.getText()).toBe('Third');
+        last.click();
+        var child = element.all(by.id('listofstudents'));
+        var EC = protractor.ExpectedConditions;
+        titleIsNotFoo = EC.not(EC.child.getText()).toContain('JAVA');
+        // expect(EC.not(child.getText()).toContain('JAVA'));
+        // expect(element.all(by.id('listofstudents')).contains('JAVA')).to.become(false).and.notify(next);
 
 
-
+    });
 
 
 });
